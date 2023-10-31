@@ -11,7 +11,7 @@ Describe "Copy-BYFile" {
             Write-Host "Creating test file..."
             Write-Host $SourceFile
             Write-Host $PSScriptRoot
-            Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
+            Write-Host $(Join-Path -Path $PSScriptRoot -ChildPath "by.txt")
             New-Item -Path $SourceFile -ItemType File
         }
 

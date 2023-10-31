@@ -3,14 +3,11 @@ Describe "Copy-BYFile" {
 
     # it performs the copy when source file does exist
     Context "When source file exists" {
-        $SourceFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by.txt")
-        $DestinationFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt")
-        $var1 = "Hello World"
 
         # create a source test file
         BeforeAll {
+            $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
             Write-Host "Creating test file..."
-            Write-Host $var1
             New-Item -Path $SourceFile -ItemType File
         }
 
@@ -23,6 +20,7 @@ Describe "Copy-BYFile" {
 
         # run the copy test
         It "Copies the file" {
+            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Executing Copy-BYFile command using test values..."
             Copy-BYFile -SourcePath $SourceFile -DestinationPath $DestinationFile
             $FileCopiedResult = Test-Path -Path $DestinationFile -PathType Leaf
@@ -32,23 +30,23 @@ Describe "Copy-BYFile" {
 
     # it thorws an error when file is doesn't exist
     Context "When source file does not exist" {
-        $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
-        $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
 
         # run the copy test
         It "Throws an error" {
+            $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
+            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Executing Copy-BYFile command using test values..."
             { Copy-BYFile -SourcePath $SourceFile -DestinationPath $DestinationFile } | Should -Throw
         }
+
     }
 
     # it throws an error when source is not a valid file
     Context "When source is not a valid file" {
-        $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
-        $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
 
         # create a source test file
         BeforeAll {
+            $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
             Write-Host "Creating invalid file..."
             New-Item -Path $SourceFile -ItemType Directory
         }
@@ -62,6 +60,7 @@ Describe "Copy-BYFile" {
 
         # run the copy test
         It "Throws an error" {
+            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Executing Copy-BYFile command using test values..."
             { Copy-BYFile -SourcePath $SourceFile -DestinationPath $DestinationFile } | Should -Throw
         }
@@ -69,11 +68,11 @@ Describe "Copy-BYFile" {
 
     # it does not throw an error when destination file already exists
     Context "When destination file already exists" {
-        $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
-        $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
 
         # create source and destination test files
         BeforeAll {
+            $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
+            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Creating test files..."
             New-Item -Path $SourceFile -ItemType File
             New-Item -Path $DestinationFile -ItemType File

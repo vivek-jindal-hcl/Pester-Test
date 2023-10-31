@@ -9,6 +9,7 @@ Describe "Copy-BYFile" {
         # create a source test file
         BeforeAll {
             Write-Host "Creating test file..."
+            Write-Host $SourceFile
             New-Item -Path $SourceFile -ItemType File
         }
 

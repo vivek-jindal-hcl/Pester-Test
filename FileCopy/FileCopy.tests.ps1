@@ -7,6 +7,7 @@ Describe "Copy-BYFile" {
         # create a source test file
         BeforeAll {
             $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
+            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Creating test file..."
             New-Item -Path $SourceFile -ItemType File
         }
@@ -20,7 +21,6 @@ Describe "Copy-BYFile" {
 
         # run the copy test
         It "Copies the file" {
-            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Executing Copy-BYFile command using test values..."
             Copy-BYFile -SourcePath $SourceFile -DestinationPath $DestinationFile
             $FileCopiedResult = Test-Path -Path $DestinationFile -PathType Leaf
@@ -47,6 +47,7 @@ Describe "Copy-BYFile" {
         # create a source test file
         BeforeAll {
             $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
+            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Creating invalid file..."
             New-Item -Path $SourceFile -ItemType Directory
         }
@@ -60,7 +61,6 @@ Describe "Copy-BYFile" {
 
         # run the copy test
         It "Throws an error" {
-            $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
             Write-Host "Executing Copy-BYFile command using test values..."
             { Copy-BYFile -SourcePath $SourceFile -DestinationPath $DestinationFile } | Should -Throw
         }

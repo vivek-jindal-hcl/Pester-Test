@@ -10,6 +10,10 @@ Describe "Copy-BYFile" {
         BeforeAll {
             Write-Host "Creating test file..."
             Write-Host $SourceFile
+            Write-Host $ENV:TEMP
+            Write-Host $ENV:TMP
+            Write-Host $PSScriptRoot
+            Write-Host $(Get-Location)
             New-Item -Path $SourceFile -ItemType File
         }
 

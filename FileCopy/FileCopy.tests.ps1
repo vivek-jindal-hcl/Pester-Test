@@ -72,7 +72,7 @@ Describe "Copy-BYFile" {
 
         # create source and destination test files
         BeforeAll {
-            Write-Host "Creating invalid file..."
+            Write-Host "Creating test files..."
             New-Item -Path $SourceFile -ItemType File
             New-Item -Path $DestinationFile -ItemType File
         }

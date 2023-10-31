@@ -5,11 +5,12 @@ Describe "Copy-BYFile" {
     Context "When source file exists" {
         $SourceFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by.txt")
         $DestinationFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt")
+        $var1 = "Hello World"
 
         # create a source test file
         BeforeAll {
             Write-Host "Creating test file..."
-            Write-Host $SourceFile
+            Write-Host $var1
             New-Item -Path $SourceFile -ItemType File
         }
 

@@ -12,7 +12,7 @@ jobs:
 
     - name: PowerShell
       shell: pwsh
-      run:
+      run: |
         Install-Module -Name Pester -Scope CurrentUser -AcceptLicense -AllowClobber -Force
         Invoke-Pester -Path ./FileCopy/FileCopy.tests.ps1 -OutputFile Test-Results.xml -OutputFormat NUnit
 

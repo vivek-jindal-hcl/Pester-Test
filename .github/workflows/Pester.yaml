@@ -1,0 +1,23 @@
+name: Pester Tests
+
+on: [pull_request]
+
+jobs:
+  Pester:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: PowerShell
+      shell: pwsh
+      run:
+        Install-Module -Name Pester -Scope CurrentUser -AcceptLicense -AllowClobber -Force
+        Invoke-Pester -Path ./FileCopy/FileCopy.tests.ps1 -OutputFile Test-Results.xml -OutputFormat NUnit
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: Test-Results.xml

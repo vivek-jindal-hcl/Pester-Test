@@ -14,7 +14,7 @@ jobs:
       shell: pwsh
       run: |
         Install-Module -Name Pester -Scope CurrentUser -AcceptLicense -AllowClobber -Force
-        Invoke-Pester -Path ./FileCopy/FileCopy.tests.ps1 -OutputFile Test-Results.xml -OutputFormat NUnit
+        Invoke-Pester -Path ./FileCopy/FileCopy.tests.ps1 -OutputFile Test-Results.xml -OutputFormat NUnitXml
 
     - name: Upload test results
       uses: actions/upload-artifact@v2

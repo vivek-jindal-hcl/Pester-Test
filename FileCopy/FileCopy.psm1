@@ -12,9 +12,9 @@ function Copy-BYFile {
         throw "Source file does not exist or is not a file: `"$SourcePath`""
     }
 
-    #if (Test-Path -Path $DestinationPath -PathType Any) {
-    #    throw "Destination already exists: `"$DestinationPath`""
-    #}
+    if (Test-Path -Path $DestinationPath -PathType Any) {
+        throw "Destination already exists: `"$DestinationPath`""
+    }
 
     Write-Host "Copying `"$SourcePath`" to `"$DestinationPath`""
     Copy-Item -Path $SourcePath -Destination $DestinationPath -Force

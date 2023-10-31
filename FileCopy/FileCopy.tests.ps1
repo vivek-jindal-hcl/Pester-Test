@@ -26,6 +26,7 @@ Describe "Copy-BYFile" {
             $FileCopiedResult = Test-Path -Path $DestinationFile -PathType Leaf
             $FileCopiedResult | Should -Be $True
         }
+
     }
 
     # it thorws an error when file is doesn't exist
@@ -64,6 +65,7 @@ Describe "Copy-BYFile" {
             Write-Host "Executing Copy-BYFile command using test values..."
             { Copy-BYFile -SourcePath $SourceFile -DestinationPath $DestinationFile } | Should -Throw
         }
+
     }
 
     # it does not throw an error when destination file already exists
@@ -92,6 +94,7 @@ Describe "Copy-BYFile" {
             $FileCopiedResult = Test-Path -Path $DestinationFile -PathType Leaf
             $FileCopiedResult | Should -Be $True
         }
+
     }
 
 }

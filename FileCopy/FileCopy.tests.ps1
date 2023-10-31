@@ -3,16 +3,12 @@ Describe "Copy-BYFile" {
 
     # it performs the copy when source file does exist
     Context "When source file exists" {
-        $SourceFile = Join-Path -Path $PSScriptRoot -ChildPath "by.txt"
-        $DestinationFile = Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt"
+        $SourceFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by.txt")
+        $DestinationFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by_copy.txt")
 
         # create a source test file
         BeforeAll {
             Write-Host "Creating test file..."
-            Write-Host $SourceFile
-            Write-Host $PSScriptRoot
-            Write-Host $(Join-Path -Path $PSScriptRoot -ChildPath "by.txt")
-            $SourceFile = $(Join-Path -Path $PSScriptRoot -ChildPath "by.txt")
             Write-Host $SourceFile
             New-Item -Path $SourceFile -ItemType File
         }

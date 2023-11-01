@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="4" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2023-10-31" time="18:00:41">
+  <environment cwd="/home/runner/work/Pester-Test/Pester-Test" os-version="6.2.0-1015-azure" user="runner" clr-version="6.0.22" platform="Linux" user-domain="" machine-name="fv-az988-587" nunit-version="2.5.8.0" />
+  <culture-info current-culture="" current-uiculture="" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Failure" success="False" time="0.7846" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="/home/runner/work/Pester-Test/Pester-Test/FileCopy/FileCopy.tests.ps1" executed="True" result="Failure" success="False" time="0.7846" asserts="0" description="/home/runner/work/Pester-Test/Pester-Test/FileCopy/FileCopy.tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="Copy-BYFile" executed="True" result="Failure" success="False" time="0.3872" asserts="0" description="Copy-BYFile">
+            <results>
+              <test-suite type="TestFixture" name="Copy-BYFile.When source file exists" executed="True" result="Success" success="True" time="0.1592" asserts="0" description="Copy-BYFile.When source file exists">
+                <results>
+                  <test-case description="Copies the file" name="Copy-BYFile.When source file exists.Copies the file" time="0.1226" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Copy-BYFile.When source file does not exist" executed="True" result="Success" success="True" time="0.2466" asserts="0" description="Copy-BYFile.When source file does not exist">
+                <results>
+                  <test-case description="Throws an error" name="Copy-BYFile.When source file does not exist.Throws an error" time="0.0813" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Copy-BYFile.When source is not a valid file" executed="True" result="Success" success="True" time="0.2963" asserts="0" description="Copy-BYFile.When source is not a valid file">
+                <results>
+                  <test-case description="Throws an error" name="Copy-BYFile.When source is not a valid file.Throws an error" time="0.0091" asserts="0" success="True" result="Success" executed="True" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="Copy-BYFile.When destination file already exists" executed="True" result="Failure" success="False" time="0.3764" asserts="0" description="Copy-BYFile.When destination file already exists">
+                <results>
+                  <test-case description="Copies the file" name="Copy-BYFile.When destination file already exists.Copies the file" time="0.0696" asserts="0" success="False" result="Failure" executed="True">
+                    <failure>
+                      <message>RuntimeException: Destination already exists: "/home/runner/work/Pester-Test/Pester-Test/FileCopy/by_copy.txt"</message>
+                      <stack-trace>at Copy-BYFile, /home/runner/work/Pester-Test/Pester-Test/FileCopy/FileCopy.psm1:16
+at &lt;ScriptBlock&gt;, /home/runner/work/Pester-Test/Pester-Test/FileCopy/FileCopy.tests.ps1:93</stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

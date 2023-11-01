@@ -14,9 +14,10 @@ jobs:
       shell: pwsh
       run: |
         Import-Module -FullyQualifiedName ./FileCopy/FileCopy.psm1 -Force
-        Invoke-Pester -Path ./FileCopy/FileCopy.tests.ps1 -Output Detailed
+        Invoke-Pester -Path ./FileCopy/FileCopy.tests.ps1 -OutputFile Test-Results.xml -OutputFormat NUnitXml
 
     - name: Upload test results
+      if: always()
       uses: actions/upload-artifact@v2
       with:
         name: test-results

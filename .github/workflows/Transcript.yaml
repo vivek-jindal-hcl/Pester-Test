@@ -1,0 +1,29 @@
+name: Transcript Testing
+
+on: [workflow_dispatch]
+
+jobs:
+  job1:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: step1
+      shell: pwsh
+      run: |
+        Start-Transcript -Path $ENV:GITHUB_WORKSPACE\job1.txt
+        Write-Host "This is job1-step1."
+
+    - name: step2
+      shell: pwsh
+      run: |
+        Write-Host "This is job1-step2."
+
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: job1
+        path: job1.txt
